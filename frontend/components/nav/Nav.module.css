@@ -1,0 +1,29 @@
+.navtop ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3em;
+    gap: 5em;
+    background-color:#1f1d36 ;
+    padding: 1em 0;
+}
+.navtop ul li{
+    list-style-type: none;
+    color: white;
+
+}
+.icontext{
+    display: flex;
+    align-items: center;
+    gap: .9em;
+    color: #fff;
+}
+.iconall{
+    color: #fff;
+}
+.icon1{
+    filter: brightness(0) invert(1);
+}
+.selection{
+    margin-left: 21%;
+}

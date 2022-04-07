@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lobster&family=Nanum+Gothic:wght@400;800&family=Noto+Serif:wght@400;700&family=Prosto+One&family=Rampart+One&family=Rubik+Beastly&family=Smooch&display=swap'); 
+  
+  
+  .inputcontainer{
+    border: solid black 1px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    padding: .6em 0;
+}
+.input1{
+    padding: .8em 0;
+    border: none;
+    outline: none;
+}
+.label1{
+    margin: 1em 0;
+}
+.register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    /* height: 100vh; */
+    border: solid black 2px;
+    box-shadow: 3px 4px 5px 6px lightgray;
+    width: 450px;
+    padding: 2em 0;
+}
+.heading{
+    font-family: Nanum Gothic;
+}
+.para{
+    font-family: Nanum Gothic;  
+}
+.text{
+    font-family:Nanum Gothic ;
+}
+.signup{
+    padding: 1em 4em;
+}
+.signupcontainer{
+    margin: 1em 0;
+}
+.inputcontainer input{
+    padding: 0 1em;
+}

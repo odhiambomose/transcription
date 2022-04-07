@@ -1,0 +1,40 @@
+.inputlogincontainer{
+    border: solid black 1px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    padding: .6em 0;
+}
+
+.input2{
+    padding: .8em 0;
+    border: none;
+    outline: none;
+}
+
+.label1{
+    margin: 1em 0;
+}
+.forgot{
+    display: flex;
+}
+.btn1{
+    padding: 1em 4em;
+}
+.loginpart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    /* height: 100vh; */
+    border: solid black 2px;
+    box-shadow: 3px 4px 5px 6px lightgray;
+    width: 450px;
+    padding: 2em 0;
+    border: none;
+}
+.containerpart{
+    height: 100vh;
+    margin: 0 auto;
+}
