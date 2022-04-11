@@ -23,3 +23,20 @@
     padding: 1em 4em;
     margin-left: 3em;
 }
+.hero{
+    display: flex;
+    
+    justify-content: space-around;
+    background-color: #1f1d36;
+    
+}
+.left{
+    background-color: #3f3351;
+    width: 20%;
+    height: 100vh;
+     
+}
+.right{
+    background-color: #3f3351;
+    width: 20%;
+}

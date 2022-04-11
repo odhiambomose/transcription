@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
     <Component {...pageProps} />
      {/* <Register/>  */}
     {/* <Login/> */}
-    {/* <Nav/> */}
+     <Nav/> 
     <Speakers/>
 
     </div>

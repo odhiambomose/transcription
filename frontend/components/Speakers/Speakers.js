@@ -1,4 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import Textbox from '../textbox/Textbox';
+import Player from '../uploadfiles/Uploadfiles';
+import Uploadfiles from '../uploadfiles/Uploadfiles';
 import styles from "./Speaker.module.css"
 
 function Speakers() {
@@ -6,30 +9,54 @@ function Speakers() {
   const [textor, setTextor] = useState("")
   const [description, setDescription] = useState("")
   const [arrayspeakers, setArrayspeakers] = useState([])
+  const [color,setColor]=useState("#000")
 
+useEffect(()=>{
 
+})
+
+const setSpeakers = ()=>{
+  setOptions(() => !options);
+
+    const speaker = {
+      name:textor,
+      description:description,
+      color:color
+    }
+    console.log(speaker)
+
+   setArrayspeakers([...arrayspeakers,speaker])
+
+}
 
   const [addspeaker, setAddspeaker] = useState("");
 
   function handlePress() {
-    return setOptions(() => {
-      return !options
+    
+    setSpeakers();
 
-    })
+  
   }
 
   function renderOptions() {
     return (
       <div className={styles.options}>
-        <p>{addspeaker}</p>
-        <p>{description}</p>
-        <p>{arrayspeakers}</p>
+         {
+           arrayspeakers.map(speaker=>{
+             return (
+               <div key={speaker.id}>
+                 {textor !=="" && <h4>{speaker.name}</h4>}
+                 {description !== "" && <p>{speaker.description}</p>}
+               </div>
+             )
+           })
+         }
         <input type="text" placeholder="new speaker"
           onChange={(e) => setTextor(e.target.value)}
           on
           className={styles.inputarea}
         />
-        <button onClick={addChange} className={styles.btnspeaker}>Add Speaker</button>
+        
          <input type="text" placeholder="Speaker description" className={styles.inputtest}
 
           onChange={(e) => setDescription(e.target.value)}
@@ -41,46 +68,47 @@ function Speakers() {
           <h3>Select color</h3>
           <input type="color"
 
-            onChange={(e) => console.log(e.target.value)}
+            onChange={(e) => setColor(e.target.value)}
             className={styles.color}
           />
+          <button onClick={handlePress} className={styles.btnspeaker}>Add Speaker</button>
         </div>
+       
       </div>
     )
   }
 
-  function addChange() {
-   return [ setAddspeaker(() => {
-      return textor
-
-
-    }),
-
-     setArrayspeakers(()=>{
-      // return arrayspeakers
-
-    return [...arrayspeakers,textor]
-
-    })
-
-  ]
-
-  }
-
+  
   
 
-
-
-
-
   return (
+    <div className={styles.hero}>
+      <div className={styles.left}>
+      {console.log(arrayspeakers)}
     <div>
       <div>
         <button onClick={handlePress} className={styles.btnspeaker1}>Speaker1</button>
       </div>
-
-      {options && renderOptions()}
+      
+     {options && renderOptions()}
     </div>
+    </div>
+
+    <div>
+      <Textbox/>
+    </div>
+
+
+    <div className={styles.right}>
+     <Player/>
+    </div>
+
+
+
+    </div>
+
+
+
   )
 }
 
