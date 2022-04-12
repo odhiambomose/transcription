@@ -1,0 +1,9 @@
+.expernders{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.expand{
+    padding: 1em;
+    margin: 1em 0;
+}

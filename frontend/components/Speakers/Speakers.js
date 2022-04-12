@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Textbox from '../textbox/Textbox';
 import Player from '../uploadfiles/Uploadfiles';
 import Uploadfiles from '../uploadfiles/Uploadfiles';
+import Text from '../Textexpernders/Text';
 import styles from "./Speaker.module.css"
 
 function Speakers() {
@@ -101,6 +102,12 @@ const setSpeakers = ()=>{
 
     <div className={styles.right}>
      <Player/>
+
+     <Text/>
+    </div>
+
+    <div>
+      
     </div>
 
 
