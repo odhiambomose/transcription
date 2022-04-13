@@ -1,19 +1,34 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from "./Text.module.css"
 
-const Text = () => {
-const [expand,setExpand]=useState(false)
-const [textExpander, setTextExpander] = useState({
-    shortword:"",
-    longword:""
-})
-const [storeexpernders,setStoreexpernders]=useState([])
+const Text = ({expand,setExpand,textExpander,setTextExpander,storeexpanders,setStoreexpanders}) => {
+    
+  
 
-function addExpernder(){
-    console.log(storeexpernders)
-    setStoreexpernders([...storeexpernders,textExpander])
+function addExpander(){
+    
+    setStoreexpanders([...storeexpanders,textExpander])
 
-}
+    console.log(storeexpanders)
+    
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -32,7 +47,7 @@ function renderExpands(){
  <label>To</label>
  <input type="text" placeholder="Expand" className={styles.expand} onChange={(e)=>setTextExpander({...textExpander,longword:e.target.value})}/>
  </div>
- <button onClick={addExpernder}>Add expernder</button>
+ <button onClick={addExpander}>Add expander</button>
 </div>
     )
 
@@ -41,6 +56,8 @@ function renderExpands(){
 
 
 }
+
+
 
   return (
     <div>

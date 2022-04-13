@@ -5,7 +5,7 @@ import Uploadfiles from '../uploadfiles/Uploadfiles';
 import Text from '../Textexpernders/Text';
 import styles from "./Speaker.module.css"
 
-function Speakers() {
+function Speakers({expand,setExpand,textExpander,setTextExpander,storeexpanders,setStoreexpanders}) {
   const [options, setOptions] = useState(false);
   const [textor, setTextor] = useState("")
   const [description, setDescription] = useState("")
@@ -85,7 +85,7 @@ const setSpeakers = ()=>{
   return (
     <div className={styles.hero}>
       <div className={styles.left}>
-      {console.log(arrayspeakers)}
+      
     <div>
       <div>
         <button onClick={handlePress} className={styles.btnspeaker1}>Speaker1</button>
@@ -96,14 +96,20 @@ const setSpeakers = ()=>{
     </div>
 
     <div>
-      <Textbox/>
+      <Textbox 
+
+      />
     </div>
 
 
     <div className={styles.right}>
      <Player/>
 
-     <Text/>
+     <Text 
+     expand={expand} setExpand={setExpand}
+     textExpander={textExpander} setTextExpander={setTextExpander} 
+     storeexpanders={storeexpanders} setStoreexpanders={setStoreexpanders}
+     />
     </div>
 
     <div>

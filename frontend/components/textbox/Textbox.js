@@ -1,20 +1,16 @@
-// import React from 'react'
 import styles from "./Textbox.module.css"
-import React, { useCallback, useEffect, useRef } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import Textarea from 'react-expanding-textarea'
+
 const Textbox=()=> {
+  const [transcript,setTranscript]=useState("")
+  function onPressKey(e){  
+    if(e.code==="Space"){
+      const array1=transcript.split(" ")
+console.log(array1[array1.length-2])
+    }  
 
-    
-        const textareaRef = useRef(null)
-      
-        const handleChange = useCallback(e => {
-          console.log('Changed value to: ', e.target.value)
-        }, [])
-      
-        useEffect(() => {
-          textareaRef.current.focus()
-        }, [])
-
+  }
   return (
     <div>
   
@@ -24,10 +20,18 @@ const Textbox=()=> {
         id="my-textarea"
         maxLength="3000"
         name="pet[notes]"
-        onChange={handleChange}
-        ref={textareaRef}
+         onChange={(e)=>setTranscript(e.target.value)}
+        onKeyUp={onPressKey
+        }
+      
+
+        
         
       />
+
+      {
+        transcript
+      }
     </div>
   )
 }
