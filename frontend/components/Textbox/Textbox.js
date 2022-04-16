@@ -1,14 +1,27 @@
 import styles from "./Textbox.module.css"
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, {  useState } from 'react'
+
+
+
 import Textarea from 'react-expanding-textarea'
 
-const Textbox=()=> {
-  const [transcript,setTranscript]=useState("")
+const Textbox=({transcript, setTranscript,textExpander,setTextExpander,storeexpanders,setStoreexpanders})=> {
+  
   function onPressKey(e){  
     if(e.code==="Space"){
       const array1=transcript.split(" ")
-console.log(array1[array1.length-2])
+const lastWord=array1[array1.length-2]
+
+storeexpanders.forEach(element => {
+  if(element.shortword===array1[array1.length-2]){
+    array1[array1.length-2]=element.longword
+  }
+    setTranscript(array1.join(" "))
+   console.log(transcript)
+});
+
     }  
+  
 
   }
   return (
@@ -20,6 +33,7 @@ console.log(array1[array1.length-2])
         id="my-textarea"
         maxLength="3000"
         name="pet[notes]"
+        value={transcript}
          onChange={(e)=>setTranscript(e.target.value)}
         onKeyUp={onPressKey
         }
@@ -28,10 +42,11 @@ console.log(array1[array1.length-2])
         
         
       />
+     
 
-      {
+      {/* {
         transcript
-      }
+      } */}
     </div>
   )
 }

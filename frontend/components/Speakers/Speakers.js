@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import Textbox from '../textbox/Textbox';
+import Textbox from '../Textbox/Textbox';
 import Player from '../uploadfiles/Uploadfiles';
 import Uploadfiles from '../uploadfiles/Uploadfiles';
-import Text from '../Textexpernders/Text';
+import Text from '../TextExpanders/TextExpanders';
 import styles from "./Speaker.module.css"
 
 function Speakers({expand,setExpand,textExpander,setTextExpander,storeexpanders,setStoreexpanders}) {
@@ -83,8 +83,8 @@ const setSpeakers = ()=>{
   
 
   return (
-    <div className={styles.hero}>
-      <div className={styles.left}>
+    <div>
+      <div>
       
     <div>
       <div>
@@ -95,22 +95,10 @@ const setSpeakers = ()=>{
     </div>
     </div>
 
-    <div>
-      <Textbox 
-
-      />
-    </div>
+    
 
 
-    <div className={styles.right}>
-     <Player/>
-
-     <Text 
-     expand={expand} setExpand={setExpand}
-     textExpander={textExpander} setTextExpander={setTextExpander} 
-     storeexpanders={storeexpanders} setStoreexpanders={setStoreexpanders}
-     />
-    </div>
+    
 
     <div>
       

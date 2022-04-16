@@ -2,6 +2,10 @@ import Head from 'next/head'
 import React,{useState} from 'react'
 import styles from '../styles/Home.module.css'
 import Speakers from '../components/Speakers/Speakers'
+import LeftPanel from '../components/LeftPanel/LeftPanel'
+import MainPanel from '../components/MainPanel/MainPanel'
+import RightPanel from '../components/RightPanel/RightPanel'
+import Nav from '../components/Nav/Nav'
 
 export default function Home() {
   const [expand,setExpand]=useState(false)
@@ -11,6 +15,8 @@ export default function Home() {
       longword:""
   })
   const [storeexpanders,setStoreexpanders]=useState([])
+
+  const [transcript,setTranscript]=useState()
   
   
 
@@ -24,14 +30,22 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>
-      <Speakers 
-    expand={expand} setExpand={setExpand}
-    textExpander={textExpander} setTextExpander={setTextExpander} 
-    storeexpanders={storeexpanders} setStoreexpanders={setStoreexpanders}
-    />
+<div>
+<Nav transcript={transcript}/>
+      <div className={styles.flex}>
+        
+      <LeftPanel  expand={expand} setExpand={setExpand}
+         textExpander={textExpander} setTextExpander={setTextExpander} 
+         storeexpanders={storeexpanders} setStoreexpanders={setStoreexpanders}/>
+      <MainPanel expand={expand} setExpand={setExpand} transcript={transcript} setTranscript={setTranscript}
+         textExpander={textExpander} setTextExpander={setTextExpander} 
+         storeexpanders={storeexpanders} setStoreexpanders={setStoreexpanders}/>
+      <RightPanel expand={expand} setExpand={setExpand}
+         textExpander={textExpander} setTextExpander={setTextExpander} 
+         storeexpanders={storeexpanders} setStoreexpanders={setStoreexpanders}/>
       </div>
 
+    </div>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from "./Text.module.css"
+import styles from "./TextExpanders.module.css"
 
-const Text = ({expand,setExpand,textExpander,setTextExpander,storeexpanders,setStoreexpanders}) => {
+const TextExpanders = ({expand,setExpand,textExpander,setTextExpander,storeexpanders,setStoreexpanders}) => {
     
   
 
@@ -62,7 +62,7 @@ function renderExpands(){
   return (
     <div>
       <div>
-          <button onClick={addHandler}>Add Text expenders</button>
+          <button onClick={addHandler} className={styles.add}>Add Text expenders</button>
       </div>
 
       <div>
@@ -75,4 +75,4 @@ function renderExpands(){
   )
 }
 
-export default Text
+export default TextExpanders
