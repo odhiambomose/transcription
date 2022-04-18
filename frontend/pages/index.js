@@ -1,11 +1,17 @@
 import Head from 'next/head'
-import React,{useState} from 'react'
+import React,{createContext, useState} from 'react'
 import styles from '../styles/Home.module.css'
 import Speakers from '../components/Speakers/Speakers'
 import LeftPanel from '../components/LeftPanel/LeftPanel'
 import MainPanel from '../components/MainPanel/MainPanel'
 import RightPanel from '../components/RightPanel/RightPanel'
 import Nav from '../components/Nav/Nav'
+
+
+
+
+
+
 
 export default function Home() {
   const [expand,setExpand]=useState(false)
@@ -18,11 +24,12 @@ export default function Home() {
 
   const [transcript,setTranscript]=useState()
   
-  
+  const [darktheme,setDarkTheme]=useState(true)
 
-
+ 
 
   return (
+    
     <div className={styles.container}>
       <Head>
         <title>Create Next App</title>
@@ -30,8 +37,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-<div>
-<Nav transcript={transcript}/>
+
+
+<Nav transcript={transcript} darktheme={darktheme} setDarkTheme={setDarkTheme}/>
       <div className={styles.flex}>
         
       <LeftPanel  expand={expand} setExpand={setExpand}
@@ -46,6 +54,7 @@ export default function Home() {
       </div>
 
     </div>
-    </div>
+    
+   
   )
 }

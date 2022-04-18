@@ -12,8 +12,10 @@ import FormHelperText from '@mui/material/FormHelperText';
 import  styles from "./Nav.module.css"
 import {Document,Packer,Paragraph,TextRun} from "docx"
 import {saveAs} from "file-saver"
+import NightlightOutlinedIcon from '@mui/icons-material/NightlightOutlined';
+import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
 
-const Nav = ({transcript}) => {
+const Nav = ({transcript,darktheme,setDarkTheme}) => {
   async function exportToWord() {
     const doc = new Document({
       sections: [{
@@ -41,6 +43,11 @@ const Nav = ({transcript}) => {
 
   return (
     <div>
+      <div>
+        {
+          darkTheme ?<NightlightOutlinedIcon/> :<WbSunnyOutlinedIcon/>
+        }
+      </div>
       <div className={styles.navtop}>
           <ul>
               <li>Timestamps</li>
@@ -63,6 +70,7 @@ const Nav = ({transcript}) => {
               <div className={styles.icontext}>
               <Image src={img2} width={25} height={25} className={styles.icon1}/>
               <li>Forum</li>
+              <li></li>
               </div>
           </ul>
       </div>
@@ -82,7 +90,7 @@ const Nav = ({transcript}) => {
             <em></em>
           </MenuItem>
           <MenuItem value={10} onClick={exportToWord}>Ms word</MenuItem>
-          <MenuItem value={20} onClick={pdfGenerate}>PDF</MenuItem>
+          <MenuItem value={20} >PDF</MenuItem>
           <MenuItem value={30}>Thirty</MenuItem>
         </Select>
       </FormControl>
