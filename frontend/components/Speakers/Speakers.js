@@ -12,9 +12,9 @@ function Speakers({expand,setExpand,textExpander,setTextExpander,storeexpanders,
   const [arrayspeakers, setArrayspeakers] = useState([])
   const [color,setColor]=useState("#000")
 
-useEffect(()=>{
+// useEffect(()=>{
 
-})
+// })
 
 const setSpeakers = ()=>{
   setOptions(() => !options);
