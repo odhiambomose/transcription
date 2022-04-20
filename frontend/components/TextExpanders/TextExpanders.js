@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "./TextExpanders.module.css"
 
-const TextExpanders = ({expand,setExpand,textExpander,setTextExpander,storeexpanders,setStoreexpanders}) => {
+const TextExpanders = ({expand,setExpand,textExpander,setTextExpander,storeexpanders,setStoreexpanders,theme,setTheme}) => {
     
   
 

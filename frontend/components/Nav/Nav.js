@@ -1,21 +1,24 @@
 import React from 'react'
 import SettingsIcon from '@mui/icons-material/Settings';
-import Image from "next/image"
-import img1 from "../../public/images/binoculars.svg"
-import img2 from "../../public/images/communities.svg"  
-import img3 from "../../public/images/microphone.svg"
+
+
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import FormHelperText from '@mui/material/FormHelperText';
+
 import  styles from "./Nav.module.css"
 import {Document,Packer,Paragraph,TextRun} from "docx"
 import {saveAs} from "file-saver"
 import NightlightOutlinedIcon from '@mui/icons-material/NightlightOutlined';
 import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
+import GetAppIcon from '@mui/icons-material/GetApp';
+import FindInPageIcon from '@mui/icons-material/FindInPage';
+import SettingsVoiceIcon from '@mui/icons-material/SettingsVoice';
+import GroupsIcon from '@mui/icons-material/Groups';
 
-const Nav = ({transcript,darktheme,setDarkTheme}) => {
+const Nav = ({transcript,darktheme,setDarkTheme,theme,setTheme}) => {
+  const {primaryColor,secondaryColor,text} = theme;
   async function exportToWord() {
     const doc = new Document({
       sections: [{
@@ -37,41 +40,62 @@ const Nav = ({transcript,darktheme,setDarkTheme}) => {
     link.click();
   }
 
+const handleThemeChange = ()=>{
+  setDarkTheme(!darktheme);
+  if(!darktheme) {
+    setTheme({
+      primaryColor:"#1f1d36",
+      secondaryColor:"#302d4e",
+      text:"#fff"
+    })
+  } else {
+    setTheme({
+      primaryColor:"lightgrey",
+      secondaryColor:"darkgrey",
+      text:"black"
+    })
+  }
 
+  console.log(darktheme)
+}
 
 
 
   return (
     <div>
-      <div>
-        {
-          darkTheme ?<NightlightOutlinedIcon/> :<WbSunnyOutlinedIcon/>
-        }
-      </div>
-      <div className={styles.navtop}>
+      
+      <div className={styles.navtop} style={{backgroundColor:primaryColor, color:text}}>
           <ul>
+            {console.log(theme.primaryColor)}
               <li>Timestamps</li>
               <div className={styles.icontext}>
-              <Image src={img2} width={25} height={25} className={styles.icon1}/>
+              <GetAppIcon className={styles.icon1}/>
               <li>Export</li>
               </div>
               <div className={styles.icontext}>
-                <Image src={img1} width={25} height={25} className={styles.icon1}/>
+                <FindInPageIcon  width={25} height={25} className={styles.icon1}/>
               <li>Find / Replace</li>
               </div>
               <div className={styles.icontext}>
               <SettingsIcon/><li>Settings</li>
               </div>
               <div className={styles.icontext}>
-              <Image src={img3} width={25} height={25} className={styles.icon1}/>
+              <SettingsVoiceIcon width={25} height={25} className={styles.icon1}/>
 
               <li>Auto transcript</li>
               </div>
               <div className={styles.icontext}>
-              <Image src={img2} width={25} height={25} className={styles.icon1}/>
+              <GroupsIcon width={25} height={25} className={styles.icon1}/>
               <li>Forum</li>
               <li></li>
               </div>
+
+              <div onClick={handleThemeChange} style={{cursor:"pointer"}}>
+        {
+          darktheme?<WbSunnyOutlinedIcon style={{color:"yellow"}}/> :<NightlightOutlinedIcon style={{backgrounColor:"white"}}/>
+        }
+        
+      </div>
           </ul>
       </div>
 
@@ -90,7 +114,14 @@ const Nav = ({transcript,darktheme,setDarkTheme}) => {
             <em></em>
           </MenuItem>
           <MenuItem value={10} onClick={exportToWord}>Ms word</MenuItem>
-          <MenuItem value={20} >PDF</MenuItem>
+        
+         
+
+           <MenuItem value={20} >PDF</MenuItem>
+          
+
+           
+          
           <MenuItem value={30}>Thirty</MenuItem>
         </Select>
       </FormControl>

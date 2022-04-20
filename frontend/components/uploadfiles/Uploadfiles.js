@@ -6,12 +6,8 @@ import ReactAudioPlayer from 'react-audio-player';
 
 
    return (
-      <div>
-      <ReactAudioPlayer
-  src="my_audio_file.ogg"
-  autoPlay
-  controls
-/>
+      <div style={{border:"solid black 1px",padding:"1em"}}>
+  <input type="file" placeholder='Upload audio/video' style={{padding:"1em 2em",textAlign:"center",margin:"0 auto", display:"flex"}}/>
      </div>
    )
  }

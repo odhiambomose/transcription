@@ -5,7 +5,7 @@ import Uploadfiles from '../uploadfiles/Uploadfiles';
 import Text from '../TextExpanders/TextExpanders';
 import styles from "./Speaker.module.css"
 
-function Speakers({expand,setExpand,textExpander,setTextExpander,storeexpanders,setStoreexpanders}) {
+function Speakers({expand,setExpand,textExpander,setTextExpander,storeexpanders,setStoreexpanders,theme,setTheme}) {
   const [options, setOptions] = useState(false);
   const [textor, setTextor] = useState("")
   const [description, setDescription] = useState("")

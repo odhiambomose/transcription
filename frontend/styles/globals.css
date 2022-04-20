@@ -6,14 +6,8 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     
 
-    
-}
-#light{
-  background-color: white;
-}
 
-#dark{
-  background-color: #1f1d36;
+    
 }
 
 a {
@@ -27,3 +21,4 @@ a {
 .flex{
   display: flex;
 }
+

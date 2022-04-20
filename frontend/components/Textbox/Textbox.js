@@ -1,11 +1,18 @@
 import styles from "./Textbox.module.css"
-import React, {  useState } from 'react'
+import React, {  useState,useEffect } from 'react'
 
 
 
 import Textarea from 'react-expanding-textarea'
 
-const Textbox=({transcript, setTranscript,textExpander,setTextExpander,storeexpanders,setStoreexpanders})=> {
+const Textbox=({transcript, setTranscript,textExpander,setTextExpander,storeexpanders,setStoreexpanders,theme,setTheme})=> {
+
+  useEffect(()=>{
+    const localTranscript = localStorage.getItem("transcript");
+    setTranscript(localTranscript)
+
+        },[])
+
   
   function onPressKey(e){  
     if(e.code==="Space"){
@@ -21,7 +28,12 @@ storeexpanders.forEach(element => {
 });
 
     }  
+
+
+    localStorage.setItem("transcript", transcript)
   
+
+    
 
   }
   return (
