@@ -59,7 +59,6 @@ return await Transcript.findByIdAndDelete(req.params.id)
 })
 
 //find by id
-    
 router.get("/find/:id", async (req,res)=>{
     try{
 const transcript = await Transcript.findById(req.params.id)
