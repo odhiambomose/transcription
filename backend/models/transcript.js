@@ -3,6 +3,7 @@ const transcriptSchema=new mongoose.Schema({
 user_id:{type:String},
 name:{type:String,unique:true,required:true},
 body:{type:Object},
+audio:{type:String}
 
 },
 {timestamps:true}

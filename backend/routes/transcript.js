@@ -9,7 +9,8 @@ router.post("/new",async (req,res)=>{
     const newTranscript= await new Transcript({
     name:req.body.name,
     user_id:req.body.user_id,
-    body:req.body.body
+    body:req.body.body,
+    audio:req.body.audio
     
     
     
