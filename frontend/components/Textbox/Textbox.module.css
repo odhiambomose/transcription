@@ -1,23 +1,18 @@
 .textbox{
-    width: 100%;
+     width: 100%; 
    
 }
-.textareaElement {
-    width: 900px;
-    
-    border: 1px solid #ccc;
-    color: #000;
-    max-height: 150px;
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
-/* textarea{
-    resize: none;
-} */
+
 
 
 .textarea{
-    width: 900px;
+     width: 900px;
+      overflow: hidden;
     resize: none;
-    padding: 2em 0;
+    margin: 2em 0;
+     padding: 1.5em; 
+     background-color: #0d3050;
+     color: #fff;
+     border: none;
+
 }

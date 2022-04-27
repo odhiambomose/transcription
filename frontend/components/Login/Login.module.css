@@ -10,16 +10,26 @@
     padding: .8em 0;
     border: none;
     outline: none;
+    font-family:Nanum Gothic ;
 }
-
+.forgot1{
+    font-family:Nanum Gothic ; 
+    font-size: 2rem; 
+}
 .label1{
     margin: 1em 0;
+    font-family:Nanum Gothic ;
 }
 .forgot{
     display: flex;
+    font-size: 1rem;
 }
 .btn1{
     padding: 1em 4em;
+    background-color: #1f1d36;
+    color: white;
+    cursor: pointer;
+
 }
 .loginpart{
     display: flex;

@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import React,{createContext, useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import styles from '../styles/Home.module.css'
 import Speakers from '../components/Speakers/Speakers'
 import LeftPanel from '../components/LeftPanel/LeftPanel'
@@ -15,14 +15,14 @@ import Nav from '../components/Nav/Nav'
 
 export default function Home() {
   const [expand,setExpand]=useState(false)
-
+  const [theTranscript, setTheTranscript] = useState([])
   const [textExpander, setTextExpander] = useState({
       shortword:"",
       longword:""
   })
   const [storeexpanders,setStoreexpanders]=useState([])
 
-  const [transcript,setTranscript]=useState()
+  const [transcript,setTranscript]=useState("")
   
   const [darktheme,setDarkTheme]=useState(true)
 
@@ -32,8 +32,25 @@ export default function Home() {
         text:"#fff"
 
   })
+  
+  const[trackSpeakers,setTrackSpeakers]=useState("Speaker1");
+const[storeCurrentTranscript,setStoreCurrentTranscript]=useState([])
 
- 
+const [element,setElement]=useState([{element:""}]);
+
+
+
+
+useEffect(()=>{
+  const data = localStorage.getItem("transcript");
+  
+  setStoreCurrentTranscript([...storeCurrentTranscript, {trackSpeakers:trackSpeakers,transcript:data}])
+
+},[])
+
+
+
+
 
   return (
     
@@ -53,18 +70,26 @@ export default function Home() {
          textExpander={textExpander} setTextExpander={setTextExpander} 
          storeexpanders={storeexpanders} setStoreexpanders={setStoreexpanders}
          theme={theme} setTheme={setTheme}
+         trackSpeakers={trackSpeakers} setTrackSpeakers={setTrackSpeakers}
+         theTranscript={theTranscript} setTheTranscript={setTheTranscript}
+         element={element} setElement={setElement}
          />
       <MainPanel expand={expand} setExpand={setExpand} transcript={transcript} setTranscript={setTranscript}
          textExpander={textExpander} setTextExpander={setTextExpander} 
          storeexpanders={storeexpanders} setStoreexpanders={setStoreexpanders}
          theme={theme} setTheme={setTheme}
+         trackSpeakers={trackSpeakers} setTrackSpeakers={setTrackSpeakers}
+         theTranscript={theTranscript} setTheTranscript={setTheTranscript}
+         element={element} setElement={setElement}
          />
       <RightPanel expand={expand} setExpand={setExpand}
          textExpander={textExpander} setTextExpander={setTextExpander} 
          storeexpanders={storeexpanders} setStoreexpanders={setStoreexpanders}
          theme={theme} setTheme={setTheme}
+         trackSpeakers={trackSpeakers} setTrackSpeakers={setTrackSpeakers}
+         theTranscript={theTranscript} setTheTranscript={setTheTranscript}
          />
-      </div>
+      </div> 
       
 
     </div>

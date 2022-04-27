@@ -3,7 +3,7 @@ import  styles from "./Register.module.css"
 import PersonIcon from '@mui/icons-material/Person';
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
-
+import back1 from "../../public/images/back.jpg"
 const Register = () => {
 
   const[formData,setFormData]=useState({
@@ -18,7 +18,7 @@ const [color,setColor]=useState("")
 function handleRegister(e){
     
 
-  const url = "https://470c-105-231-200-83.ngrok.io/api/auth/register"
+  const url = "https://polar-crag-34351.herokuapp.com/api/auth/register"
 
      const options={
   method:"POST",
@@ -36,7 +36,7 @@ function handleRegister(e){
 
      } else {
          setMessage("succesfully registered you can login")
-         setColor("#65C18C")
+         setColor("#6CB4A5")
          
 return data
      }
@@ -62,12 +62,14 @@ return data
 
 
   return (
+
+    <div className={styles.flexregister}>
     <div className={styles.register}>
     <div>
         <h2 className={styles.heading}>Create Account</h2>
         <p className={styles.para}>Get started with transcription</p>
     </div>
-    <p className="success" className="error" style={{color:color}}>{message} </p>
+    <p className="success" className="error" style={{color:color}} className={styles.textcolor}>{message} </p>
 
     <div>
       <div className={styles.label1}>
@@ -75,7 +77,7 @@ return data
       </div>
     <div className={styles.inputcontainer}>
     <PersonIcon/>
-        <input type="text" placeholder="Username" className={styles.input1} onChange={(e)=>setFormData({...formData,username:e.target.value})}/>
+        <input type="text" placeholder="Username" className={styles.input1} onChange={(e)=>setFormData({...formData,username:e.target.value})} required/>
     </div>
     </div>
     <div>
@@ -84,7 +86,7 @@ return data
       </div>
     <div className={styles.inputcontainer}>
     <EmailIcon/>
-        <input type="text" placeholder="Email" className={styles.input1} onChange={(e)=>setFormData({...formData,email:e.target.value})}/>
+        <input type="text" placeholder="Email" className={styles.input1} onChange={(e)=>setFormData({...formData,email:e.target.value})} required/>
     </div>
     </div>
 
@@ -94,13 +96,17 @@ return data
       </div>
     <div className={styles.inputcontainer}>
     <LockIcon/>
-        <input type="text" placeholder="Username" className={styles.input1} onChange={(e)=>setFormData({...formData,password:e.target.value})}/>
+        <input type="text" placeholder="Username" className={styles.input1} onChange={(e)=>setFormData({...formData,password:e.target.value})} required/>
     </div>
     </div>
 <div className={styles.signupcontainer}>
-  <button className={styles.signup} onClick={handleRegister}>Signup</button>
+  <button className={styles.signup} onClick={handleRegister} disabled ={formData.username==="" || formData.email==="" || formData.password===""} >Signup</button>
 </div>
 
+    </div>
+    <div className={styles.background}>
+      <h2 className={styles.texting}>Welcome to our transcription site where we provide affordable tools for Transcribers</h2>
+    </div>
     </div>
   )
 }

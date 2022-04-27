@@ -2,6 +2,18 @@ import React,{useState,useEffect} from 'react'
 import ReactAudioPlayer from 'react-audio-player';
 
  const Uploadfiles = () => {
+const[data,setData]=useState({
+name:"",
+body:{
+  "speaker":""
+},
+user_id:"",
+date:"",
+audio:""
+
+})
+ 
+
   
   const handleFileUpload = async (e)=>{
     const files = e.target.files;
@@ -20,6 +32,19 @@ import ReactAudioPlayer from 'react-audio-player';
 
     const data = await cloudinaryData.json();
     console.log(data);
+
+const url="https://polar-crag-34351.herokuapp.com/api/transcript/new"
+
+const options={
+  method:"POST",
+  headers:{"Content-Type":"application/json"},
+  body:JSON.stringify(data)
+      }
+
+      return  fetch(url,options)
+      .then(res=>res.json())
+
+
   }
 
 

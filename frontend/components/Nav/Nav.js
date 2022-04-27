@@ -56,7 +56,7 @@ const handleThemeChange = ()=>{
     })
   }
 
-  console.log(darktheme)
+  
 }
 
 
@@ -66,7 +66,7 @@ const handleThemeChange = ()=>{
       
       <div className={styles.navtop} style={{backgroundColor:primaryColor, color:text}}>
           <ul>
-            {console.log(theme.primaryColor)}
+            
               <li>Timestamps</li>
               <div className={styles.icontext}>
               <GetAppIcon className={styles.icon1}/>
@@ -109,6 +109,7 @@ const handleThemeChange = ()=>{
           // value={}
           // label="Age"
           // // onChange={handleChange}
+          defaultValue = ""
         >
           <MenuItem value="">
             <em></em>
@@ -132,6 +133,7 @@ const handleThemeChange = ()=>{
           // onChange={handleChange}
           // displayEmpty
           // inputProps={{ 'aria-label': 'Without label' }}
+          defaultValue = ""
         >
           <MenuItem value="">
             <em>None</em>
@@ -150,6 +152,7 @@ const handleThemeChange = ()=>{
           // onChange={handleChange}
           // displayEmpty
           // inputProps={{ 'aria-label': 'Without label' }}
+          defaultValue = ""
         >
           <MenuItem value="">
             <em>None</em>

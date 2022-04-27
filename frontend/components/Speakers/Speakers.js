@@ -5,39 +5,50 @@ import Uploadfiles from '../uploadfiles/Uploadfiles';
 import Text from '../TextExpanders/TextExpanders';
 import styles from "./Speaker.module.css"
 
-function Speakers({expand,setExpand,textExpander,setTextExpander,storeexpanders,setStoreexpanders,theme,setTheme}) {
+function Speakers({expand,setExpand,textExpander,setTextExpander,storeexpanders,setStoreexpanders,theme,setTheme,trackSpeakers,setTrackSpeakers,trackTranscript,setTrackTranscript,element,setElement}) {
   const [options, setOptions] = useState(false);
   const [textor, setTextor] = useState("")
   const [description, setDescription] = useState("")
   const [arrayspeakers, setArrayspeakers] = useState([])
   const [color,setColor]=useState("#000")
 
-// useEffect(()=>{
+useEffect(()=>{
 
-// })
+setTrackSpeakers([...trackSpeakers, "Speaker 1"])
 
-const setSpeakers = ()=>{
-  setOptions(() => !options);
+
+ },[])
+
+ useEffect(()=>{
+const data = localStorage.getItem("speakers");
+setArrayspeakers(()=>JSON.parse(data))
+ },[])
+
+ useEffect(()=>{
+  localStorage.setItem('speakers', JSON.stringify(arrayspeakers));
+ }, [arrayspeakers])
+
+
+  
+
+  function handlePress() {
+    
+    
 
     const speaker = {
       name:textor,
       description:description,
       color:color
     }
-    console.log(speaker)
-
-   setArrayspeakers([...arrayspeakers,speaker])
-
-}
-
-  const [addspeaker, setAddspeaker] = useState("");
-
-  function handlePress() {
     
-    setSpeakers();
+
+   setArrayspeakers(()=>[...arrayspeakers,speaker])
+
+  
 
   
   }
+
 
   function renderOptions() {
     return (
@@ -46,8 +57,9 @@ const setSpeakers = ()=>{
            arrayspeakers.map(speaker=>{
              return (
                <div key={speaker.id}>
-                 {textor !=="" && <h4>{speaker.name}</h4>}
-                 {description !== "" && <p>{speaker.description}</p>}
+                
+                 {<h4>{speaker.name}</h4>}
+                 {<p>{speaker.description}</p>}
                </div>
              )
            })
@@ -81,17 +93,27 @@ const setSpeakers = ()=>{
 
   
   
+  
 
   return (
     <div>
+
+      {
+        element.map(item=>{
+          return(
+            <div>
+            <button onClick={()=>setOptions(() => !options)} className={styles.btnspeaker1}>Speaker1</button>
+            {options && renderOptions()}
+</div>
+          )
+        })
+      }
       <div>
-      
+      {/* {console.log(options)} */}
     <div>
       <div>
-        <button onClick={handlePress} className={styles.btnspeaker1}>Speaker1</button>
       </div>
       
-     {options && renderOptions()}
     </div>
     </div>
 
@@ -101,7 +123,8 @@ const setSpeakers = ()=>{
     
 
     <div>
-      
+
+  
     </div>
 
 
