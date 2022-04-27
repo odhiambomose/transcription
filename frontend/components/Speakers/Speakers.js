@@ -5,79 +5,83 @@ import Uploadfiles from '../uploadfiles/Uploadfiles';
 import Text from '../TextExpanders/TextExpanders';
 import styles from "./Speaker.module.css"
 
-function Speakers({expand,setExpand,textExpander,setTextExpander,storeexpanders,setStoreexpanders,theme,setTheme,trackSpeakers,setTrackSpeakers,trackTranscript,setTrackTranscript,element,setElement}) {
+function Speakers({ expand, setExpand, textExpander, setTextExpander, storeexpanders, setStoreexpanders, theme, setTheme, trackSpeakers, setTrackSpeakers, trackTranscript, setTrackTranscript, element, setElement }) {
   const [options, setOptions] = useState(false);
   const [textor, setTextor] = useState("")
   const [description, setDescription] = useState("")
   const [arrayspeakers, setArrayspeakers] = useState([])
-  const [color,setColor]=useState("#000")
+  const [color, setColor] = useState("#000")
 
-useEffect(()=>{
+  useEffect(() => {
 
-setTrackSpeakers([...trackSpeakers, "Speaker 1"])
-
-
- },[])
-
- useEffect(()=>{
-const data = localStorage.getItem("speakers");
-setArrayspeakers(()=>JSON.parse(data))
- },[])
-
- useEffect(()=>{
-  localStorage.setItem('speakers', JSON.stringify(arrayspeakers));
- }, [arrayspeakers])
+    setTrackSpeakers([...trackSpeakers, "Speaker 1"])
 
 
-  
+  }, [])
 
-  function handlePress() {
-    
-    
+  useEffect(() => {
+    const data = localStorage.getItem("speakers");
+    setArrayspeakers(() => JSON.parse(data))
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('speakers', JSON.stringify(arrayspeakers));
+  }, [arrayspeakers])
+
+
+
+
+  function handlePress(e) {
+
+
 
     const speaker = {
-      name:textor,
-      description:description,
-      color:color
+      name: textor,
+      description: description,
+      color: color
     }
-    
 
-   setArrayspeakers(()=>[...arrayspeakers,speaker])
 
-  
+    setArrayspeakers(() => [...arrayspeakers, speaker])
 
-  
+
+
+
+  }
+
+  function onHandleSpeaker(data){
+return !data
   }
 
 
   function renderOptions() {
     return (
       <div className={styles.options}>
-         {
-           arrayspeakers.map(speaker=>{
-             return (
-               <div key={speaker.id}>
-                
-                 {<h4>{speaker.name}</h4>}
-                 {<p>{speaker.description}</p>}
-               </div>
-             )
-           })
-         }
+        {
+          arrayspeakers.map(speaker => {
+            return (
+              <div key={speaker.id}>
+
+                {<h4>{speaker.name}</h4>}
+                {<p>{speaker.description}</p>}
+              </div>
+            )
+          })
+        }
         <input type="text" placeholder="new speaker"
           onChange={(e) => setTextor(e.target.value)}
           on
           className={styles.inputarea}
         />
-        
-         <input type="text" placeholder="Speaker description" className={styles.inputtest}
+
+        <input type="text" placeholder="Speaker description" className={styles.inputtest}
 
           onChange={(e) => setDescription(e.target.value)}
-        /> 
+        />
         <div>
 
         </div>
-        <div>
+        <div className={styles.addcolor}>
           <h3>Select color</h3>
           <input type="color"
 
@@ -86,46 +90,48 @@ setArrayspeakers(()=>JSON.parse(data))
           />
           <button onClick={handlePress} className={styles.btnspeaker}>Add Speaker</button>
         </div>
-       
+
       </div>
     )
   }
 
-  
-  
-  
+
+
+
 
   return (
     <div>
 
       {
-        element.map(item=>{
-          return(
-            <div>
-            <button onClick={()=>setOptions(() => !options)} className={styles.btnspeaker1}>Speaker1</button>
-            {options && renderOptions()}
-</div>
+        element.map((item, index) => {
+          let itemShow = item.show;
+          return (
+            <div key={index}>
+              <button onClick={()=>setElement([...element, {show:!item.show}])} className={styles.btnspeaker1}>Speaker1</button>
+              {console.log(itemShow)}
+              {itemShow && renderOptions()}
+            </div>
           )
         })
       }
       <div>
-      {/* {console.log(options)} */}
-    <div>
-      <div>
+        {/* {console.log(options)} */}
+        <div>
+          <div>
+          </div>
+
+        </div>
       </div>
-      
-    </div>
-    </div>
-
-    
 
 
-    
 
-    <div>
 
-  
-    </div>
+
+
+      <div>
+
+
+      </div>
 
 
 

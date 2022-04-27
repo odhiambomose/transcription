@@ -36,7 +36,7 @@ export default function Home() {
   const[trackSpeakers,setTrackSpeakers]=useState("Speaker1");
 const[storeCurrentTranscript,setStoreCurrentTranscript]=useState([])
 
-const [element,setElement]=useState([{element:""}]);
+const [element,setElement]=useState([{element:"",show:false}]);
 
 
 
@@ -64,7 +64,7 @@ useEffect(()=>{
 
 
 <Nav transcript={transcript} darktheme={darktheme} setDarkTheme={setDarkTheme} theme={theme} setTheme={setTheme}/>
-      <div className={styles.flex}>
+       <div className={styles.flex}>
         
       <LeftPanel  expand={expand} setExpand={setExpand}
          textExpander={textExpander} setTextExpander={setTextExpander} 
@@ -90,7 +90,7 @@ useEffect(()=>{
          theTranscript={theTranscript} setTheTranscript={setTheTranscript}
          />
       </div> 
-      
+       
 
     </div>
     

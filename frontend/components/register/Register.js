@@ -65,7 +65,7 @@ return data
 
     <div className={styles.flexregister}>
     <div className={styles.register}>
-    <div>
+    <div className={styles.align}>
         <h2 className={styles.heading}>Create Account</h2>
         <p className={styles.para}>Get started with transcription</p>
     </div>
@@ -76,7 +76,7 @@ return data
       <label className={styles.text}>Username</label>
       </div>
     <div className={styles.inputcontainer}>
-    <PersonIcon/>
+    <PersonIcon className={styles.iconregister}/>
         <input type="text" placeholder="Username" className={styles.input1} onChange={(e)=>setFormData({...formData,username:e.target.value})} required/>
     </div>
     </div>
@@ -85,7 +85,7 @@ return data
       <label className={styles.text}>Email</label>
       </div>
     <div className={styles.inputcontainer}>
-    <EmailIcon/>
+    <EmailIcon className={styles.iconregister}/>
         <input type="text" placeholder="Email" className={styles.input1} onChange={(e)=>setFormData({...formData,email:e.target.value})} required/>
     </div>
     </div>
@@ -95,7 +95,7 @@ return data
       <label className={styles.text}>Password</label>
       </div>
     <div className={styles.inputcontainer}>
-    <LockIcon/>
+    <LockIcon className={styles.iconregister}/>
         <input type="text" placeholder="Username" className={styles.input1} onChange={(e)=>setFormData({...formData,password:e.target.value})} required/>
     </div>
     </div>

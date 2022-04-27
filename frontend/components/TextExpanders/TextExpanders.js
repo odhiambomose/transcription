@@ -39,15 +39,15 @@ setExpand(()=>! expand)
 function renderExpands(){
     return(
 <div className={styles.expernders}>
-    <div>
+    <div >
     <label>Expand</label>
  <input type="text" placeholder="Enter shortform" className={styles.expand} onChange={(e)=>setTextExpander({...textExpander, shortword:e.target.value})}/>
  </div>
- <div>
+ <div className={styles.phase1}>
  <label>To</label>
  <input type="text" placeholder="Expand" className={styles.expand} onChange={(e)=>setTextExpander({...textExpander,longword:e.target.value})}/>
  </div>
- <button onClick={addExpander}>Add expander</button>
+ <button onClick={addExpander} >Add expander</button>
 </div>
     )
 

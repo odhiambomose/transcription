@@ -57,7 +57,7 @@ const [eventArr, setEventArr] = useState(["Enter"])
     console.log(eventArr)
 
     if(eventArr.length === 2) {
-      setElement([...element, {element:""}])
+      setElement([...element, {element:"",show:false}])
       setEventArr([])
     }
   }

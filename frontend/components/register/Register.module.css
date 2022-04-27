@@ -76,7 +76,7 @@ align-items: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 .texting{
     color: white;
@@ -87,4 +87,12 @@ align-items: center;
     font-family: Nanum Gothic;
     margin: 0 auto;
     font-size: 2rem;
+}
+.iconregister{
+    margin-left: .6em;
+}
+.align{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }

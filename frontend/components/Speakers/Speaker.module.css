@@ -2,3 +2,21 @@
     padding: 1em 4em;
     margin: 3em 0;
 }
+.inputarea{
+    padding: 1em 0;
+    margin: .4em 0;
+}
+.inputtest{
+    padding: 1em 0;
+    margin: .4em 0;
+}
+.addcolor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.btnspeaker{
+    padding: 1em 0;
+    margin: .5em 0;
+
+}
