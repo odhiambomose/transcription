@@ -47,7 +47,7 @@ function renderExpands(){
  <label>To</label>
  <input type="text" placeholder="Expand" className={styles.expand} onChange={(e)=>setTextExpander({...textExpander,longword:e.target.value})}/>
  </div>
- <button onClick={addExpander} >Add expander</button>
+ <button onClick={addExpander}  >Add expander</button>
 </div>
     )
 

@@ -4,7 +4,7 @@
     position: relative;
     overflow: hidden;
     background-color: #ddd;
-    margin: 20px auto;
+    margin: 100px auto;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
@@ -37,9 +37,4 @@
         left: 100%;
         width: 100%;
     }
-}
-.player{
-display: flex;
-justify-content: center;
-margin: 1em 1.5em;
 }

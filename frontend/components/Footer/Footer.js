@@ -1,10 +1,18 @@
 import React from 'react'
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import EmailIcon from '@mui/icons-material/Email';
-
+import Image from "next/image";
+import img22 from "../../public/images/logo.png"
 const Footer = () => {
   return (
     <div>
+<div>
+<Image src={img22} width={"30px"} height={"40px"}/>
+
+</div>
+
+
+
       <div>
           <ul>
               <li>Timestamps</li>

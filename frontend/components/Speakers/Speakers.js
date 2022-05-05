@@ -11,6 +11,7 @@ function Speakers({ expand, setExpand, textExpander, setTextExpander, storeexpan
   const [description, setDescription] = useState("")
   const [arrayspeakers, setArrayspeakers] = useState([])
   const [color, setColor] = useState("#000")
+  const [activeIndex,setActiveIndex]=useState(null)
 
   useEffect(() => {
 
@@ -107,9 +108,12 @@ return !data
           let itemShow = item.show;
           return (
             <div key={index}>
-              <button onClick={()=>setElement([...element, {show:!item.show}])} className={styles.btnspeaker1}>Speaker1</button>
+              <button onClick={()=>{
+                setActiveIndex(index)
+                setOptions(!options)
+              }} className={styles.btnspeaker1}>Speaker</button>
               {console.log(itemShow)}
-              {itemShow && renderOptions()}
+              {activeIndex === index && options && renderOptions()}
             </div>
           )
         })

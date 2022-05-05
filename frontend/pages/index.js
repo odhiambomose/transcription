@@ -6,6 +6,8 @@ import LeftPanel from '../components/LeftPanel/LeftPanel'
 import MainPanel from '../components/MainPanel/MainPanel'
 import RightPanel from '../components/RightPanel/RightPanel'
 import Nav from '../components/Nav/Nav'
+import Loader from '../Loader/Loader';
+import Footer from '../components/Footer/Footer';
 
 
 
@@ -53,6 +55,7 @@ useEffect(()=>{
 
 
   return (
+    <div>
     
     <div className={styles.container} style={{backgroundColor:theme.primaryColor}} >
       <Head>
@@ -63,8 +66,8 @@ useEffect(()=>{
 
 
 
-<Nav transcript={transcript} darktheme={darktheme} setDarkTheme={setDarkTheme} theme={theme} setTheme={setTheme}/>
-       <div className={styles.flex}>
+<Nav transcript={transcript} darktheme={darktheme} setDarkTheme={setDarkTheme} theme={theme} setTheme={setTheme} element={element} setElement={setElement}/>
+          <div className={styles.flex}>
         
       <LeftPanel  expand={expand} setExpand={setExpand}
          textExpander={textExpander} setTextExpander={setTextExpander} 
@@ -89,9 +92,13 @@ useEffect(()=>{
          trackSpeakers={trackSpeakers} setTrackSpeakers={setTrackSpeakers}
          theTranscript={theTranscript} setTheTranscript={setTheTranscript}
          />
-      </div> 
-       
+      </div>   
+        
+         {/* <Loader/>  */}
+         
 
+    </div>
+    {/* <Footer/> */}
     </div>
     
    

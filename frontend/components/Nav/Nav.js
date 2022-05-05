@@ -16,22 +16,31 @@ import GetAppIcon from '@mui/icons-material/GetApp';
 import FindInPageIcon from '@mui/icons-material/FindInPage';
 import SettingsVoiceIcon from '@mui/icons-material/SettingsVoice';
 import GroupsIcon from '@mui/icons-material/Groups';
+import jsPDF from "jspdf"
 
-const Nav = ({transcript,darktheme,setDarkTheme,theme,setTheme}) => {
+const Nav = ({transcript,darktheme,setDarkTheme,theme,setTheme,element,setElement}) => {
   const {primaryColor,secondaryColor,text} = theme;
+
   async function exportToWord() {
+    const data = element.map(item=>{
+      return item.element
+    })
     const doc = new Document({
       sections: [{
         properties: {},
-        children: [
+        children:[
           new Paragraph({
             children: [
-              new TextRun(transcript)
+    
+              new TextRun(data)
             ],
           }),
-        ],
+        ]
       }]
     });
+
+    
+
     const buffer = await Packer.toBuffer(doc);
     const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" });
     const link = document.createElement('a');
@@ -50,13 +59,25 @@ const handleThemeChange = ()=>{
     })
   } else {
     setTheme({
-      primaryColor:"lightgrey",
-      secondaryColor:"darkgrey",
+      primaryColor:"#EBECF0",
+      secondaryColor:"#f9f9f9",
       text:"black"
     })
   }
 
   
+}
+
+const pdfGenerator=()=>{
+  const doc = new jsPDF();
+let yaxis = 10
+  element.map(item=>{
+    doc.text(item.element,10,yaxis);
+    yaxis += 1
+  })
+  
+  doc.save("a4.pdf");
+
 }
 
 
@@ -86,7 +107,7 @@ const handleThemeChange = ()=>{
               </div>
               <div className={styles.icontext}>
               <GroupsIcon width={25} height={25} className={styles.icon1}/>
-              <li>Forum</li>
+             <a href='http://moses.freecluster.eu/' target="_blank"> <li>Forum</li></a>
               <li></li>
               </div>
 
@@ -118,7 +139,7 @@ const handleThemeChange = ()=>{
         
          
 
-           <MenuItem value={20} >PDF</MenuItem>
+           <MenuItem value={20} onClick={pdfGenerator} >PDF</MenuItem>
           
 
            

@@ -1,9 +1,11 @@
 import React,{useState} from 'react'
-import  styles from "./Register.module.css"
+import  styles from "../components/Register/Register.module.css";
 import PersonIcon from '@mui/icons-material/Person';
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
-import back1 from "../../public/images/back.jpg"
+// import back from "../../public/images/back.jpg"
+import Link from 'next/link'
+
 const Register = () => {
 
   const[formData,setFormData]=useState({
@@ -14,6 +16,7 @@ const Register = () => {
 })
 const [message, setMessage] = useState("");
 const [color,setColor]=useState("")
+const [backgroundColor,setBackgroundColor]=useState("")
 
 function handleRegister(e){
     
@@ -31,20 +34,22 @@ function handleRegister(e){
      if( data.code===11000){
         
       setMessage("User already registered")
-      setColor("#f00")
+      setColor("#fff")
+      setBackgroundColor("red")
      
 
      } else {
          setMessage("succesfully registered you can login")
-         setColor("#6CB4A5")
+         setColor("#fff")
+         setBackgroundColor("#6CB4A5")
          
 return data
      }
     
  })
-//  .catch(error=>{
-//      console.log(error.response.status)
-//  })
+ .catch(error=>{
+      console.log(error)
+ })
  
 
 
@@ -69,7 +74,7 @@ return data
         <h2 className={styles.heading}>Create Account</h2>
         <p className={styles.para}>Get started with transcription</p>
     </div>
-    <p className="success" className="error" style={{color:color}} className={styles.textcolor}>{message} </p>
+    <p className="success" className="error" style={{color:color,backgroundColor:backgroundColor}} className={styles.textcolor}>{message} </p>
 
     <div>
       <div className={styles.label1}>
@@ -96,11 +101,12 @@ return data
       </div>
     <div className={styles.inputcontainer}>
     <LockIcon className={styles.iconregister}/>
-        <input type="text" placeholder="Username" className={styles.input1} onChange={(e)=>setFormData({...formData,password:e.target.value})} required/>
+        <input type="text" placeholder="Password" className={styles.input1} onChange={(e)=>setFormData({...formData,password:e.target.value})} required/>
     </div>
     </div>
 <div className={styles.signupcontainer}>
   <button className={styles.signup} onClick={handleRegister} disabled ={formData.username==="" || formData.email==="" || formData.password===""} >Signup</button>
+  <p>Already have an account<span className={styles.span}><Link href="/login">login</Link></span></p>
 </div>
 
     </div>

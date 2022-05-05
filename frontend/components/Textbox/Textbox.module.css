@@ -5,14 +5,16 @@
 
 
 
+
 .textarea{
      width: 900px;
-      overflow: hidden;
     resize: none;
+    overflow: hidden;
     margin: 2em 0;
      padding: 1.5em; 
-     background-color: #0d3050;
-     color: #fff;
+     background-color: #fff;
+     color: #000;
      border: none;
-
+     
 }
+

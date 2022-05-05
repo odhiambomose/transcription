@@ -1,13 +1,20 @@
 import styles from "./Textbox.module.css"
 import React, { useEffect, useState } from 'react'
-// import Textarea from 'react-expanding-textarea'
+import TextareaAutosize from '@mui/material/TextareaAutosize';
 
 
 
 
-const Textbox = ({ transcript, setTranscript, textExpander, setTextExpander, storeexpanders, setStoreexpanders, theme, setTheme, theTranscript, setTheTranscript,element,setElement }) => {
+const Textbox = ({ transcript, setTranscript, textExpander, setTextExpander, storeexpanders, setStoreexpanders, theme, setTheme, theTranscript, setTheTranscript, element, setElement}) => {
 
-const [eventArr, setEventArr] = useState(["Enter"])
+ 
+
+
+
+
+
+
+  const [eventArr, setEventArr] = useState([])
   useEffect(() => {
     const localTranscript = localStorage.getItem("transcript");
     setTranscript(() => localTranscript)
@@ -20,17 +27,25 @@ const [eventArr, setEventArr] = useState(["Enter"])
 
 
 
-  function onPressKey(e) {
+  function onPressKey(e, index) {
     if (e.code === "Space") {
-      const array1 = transcript.split(" ")
+
+      let transcriptElements = [...element];
+      let transcriptElement = transcriptElements[index];
+      const array1 = transcriptElement.element.split(" ") || transcriptElement.element.split("/n")
+      console.log(array1)
       const lastWord = array1[array1.length - 2]
 
-      storeexpanders.forEach(element => {
-        if (element.shortword === array1[array1.length - 2]) {
-          array1[array1.length - 2] = element.longword
+      storeexpanders.forEach(word => {
+        if (word.shortword === array1[array1.length - 2]) {
+          array1[array1.length - 2] = word.longword
         }
-        setTranscript(array1.join(" "))
-        console.log(transcript)
+
+        transcriptElement.element = array1.join(" ");
+transcriptElements[index] = transcriptElement
+
+        setElement(transcriptElements)
+        console.log(transcriptElements)
       });
 
     }
@@ -45,19 +60,19 @@ const [eventArr, setEventArr] = useState(["Enter"])
 
   }
 
-  
+
   const handleKeyDown = (e) => {
 
-    
 
-    if(e.code==="Enter"){
-      setEventArr(()=>[...eventArr, e.code])
+
+    if (e.code === "Enter") {
+      setEventArr(() => [...eventArr, e.code])
     }
 
-    console.log(eventArr)
+  
 
-    if(eventArr.length === 2) {
-      setElement([...element, {element:"",show:false}])
+    if (eventArr.length === 1) {
+      setElement([...element, { element: "", show: false }])
       setEventArr([])
     }
   }
@@ -65,33 +80,48 @@ const [eventArr, setEventArr] = useState(["Enter"])
 
 
 
+
+
+
+
+
+
   return (
     <div>
-{
-element.map((item, index)=>{
-  return (
-    <div key={index}>
-    <textarea
-    className={styles.textarea}
+      {
+        element.map((item, index) => {
+          return (
+            <div key={index}>
+            
+
+              <TextareaAutosize
+                className={styles.textarea}
+                aria-label="minimum height"
+                minRows={2}
+                value={element[index].element}
+                onChange={(e)=>{
+                  let dataItems = [...element]
+                  let dataItem = dataItems[index]
+                  dataItem.element = e.target.value
+                  dataItems[index] = dataItem
+                  setElement(dataItems)
 
 
-    value={transcript}
-    onKeyUp={onPressKey}
-    onKeyDown={handleKeyDown}
-    onChange={(e) => setTranscript(e.target.value)}
-    autoFocus
+                }}
+                onKeyUp={(e)=>onPressKey(e,index)}
+                onKeyDown={handleKeyDown}
+                autoFocus
 
-  >
+              />
 
 
-  </textarea>
-  </div>
-  )
-})
+            </div>
+          )
+        })
 
-}
+      }
 
-  
+
 
 
 

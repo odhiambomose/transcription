@@ -37,14 +37,37 @@
     align-items: center;
     flex-direction: column;
     margin: 0 auto;
+    background-color: white;
     /* height: 100vh; */
     border: solid black 2px;
-    box-shadow: 3px 4px 5px 6px lightgray;
+    box-shadow: 3px 2px 2px 4px lightgray;
     width: 450px;
-    padding: 2em 0;
+    /* padding: 2em 0; */
     border: none;
 }
 .containerpart{
-    height: 100vh;
+    /* height: 100vh; */
     margin: 0 auto;
+    display: flex;
+}
+.loginbackground{
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0,0,0,.6)), url("../../public/images/back.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 50vw;
+    height: 100vh;
+    height: 678px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 0 auto; */
+    margin-top: 6em;
+    margin-left: 20%;
+    
+    
+    
+}
+.messagepart{
+    padding: 1em 1em;
 }

@@ -27,7 +27,7 @@
     
     border: solid black 2px;
     box-shadow: 3px 4px 5px 6px lightgray;
-    width: 450px;
+    width: 448px;
     padding: 2em 0;
     border: none;
     background-color:#fff;
@@ -48,7 +48,10 @@
     font-size: 1rem;
 }
 .signupcontainer{
-    margin: 1em 0;
+    margin: 1.5em 0;
+    display: flex;
+    flex-direction: column;
+
 }
 .inputcontainer input{
     padding: 0 1em;
@@ -66,7 +69,7 @@ background-repeat: no-repeat;
 background-size: cover;
 width: 50vw;
 height: 100vh;
-height: 600px;
+height: 678px;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -95,4 +98,8 @@ align-items: center;
     display: flex;
     flex-direction: column;
     text-align: center;
+}
+.span{
+    color: green;
+    margin-left: 1em;
 }

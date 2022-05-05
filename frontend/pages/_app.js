@@ -1,7 +1,7 @@
 
 import Home from '.'
-import Register from '../components/register/Register'
-import Login from "../components/Login/Login"
+// import Register from './register'
+import Login from "../pages/login"
 // import TextExpanders from '../components/Textexpernders/Text'
 import '../styles/globals.css'
 
